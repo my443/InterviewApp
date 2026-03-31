@@ -59,8 +59,7 @@ namespace InterviewApp.Services
         {
             return await _context.Categories
                     .Include(c => c.Questions)
-                    .Where(c => c.Id == id)
-                    .FirstOrDefaultAsync();
+                    .FirstOrDefaultAsync(c => c.Id == id);
         }
     }
 }

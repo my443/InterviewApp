@@ -58,8 +58,7 @@ namespace InterviewApp.Services
         {
             return await _context.Questions
                             .Include(q => q.Category)
-                            .Where(q => q.Id == id)
-                            .FirstOrDefaultAsync();
+                            .FirstOrDefaultAsync(q => q.Id == id);
         }
         
         public async Task<List<Question>> GetQuestionsByCategoryIdAsync(int categoryId)
