@@ -1,9 +1,6 @@
 ﻿using InterviewApp.Data;
 using InterviewApp.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace InterviewApp.Services
 {
@@ -53,17 +50,17 @@ namespace InterviewApp.Services
 
         public async Task<List<Category>> GetAllCategoriesAsync()
         {
-            return _context.Categories
+            return await _context.Categories
                     .Include(c => c.Questions) 
-                    .ToList();
+                    .ToListAsync();
         }
 
         public async Task<Category> GetCategoryByIdAsync(int id)
         {
-            return _context.Categories
+            return await _context.Categories
                     .Include(c => c.Questions)
                     .Where(c => c.Id == id)
-                    .FirstOrDefault();
+                    .FirstOrDefaultAsync();
         }
     }
 }
