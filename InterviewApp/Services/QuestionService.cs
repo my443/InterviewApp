@@ -33,7 +33,7 @@ namespace InterviewApp.Services
             if (question_to_remove != null)
             {
                 _context.Questions.Remove(question_to_remove);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
         }
 
@@ -45,7 +45,7 @@ namespace InterviewApp.Services
                 question_to_update.QuestionText = question.QuestionText;
                 question_to_update.QuestionDetails = question.QuestionDetails;
                 question_to_update.CategoryId = question.CategoryId;
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
         }
 

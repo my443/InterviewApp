@@ -1,3 +1,5 @@
 <Solution>
-  <Project Path="InterviewApp/InterviewApp.csproj" />
+  <Project Path="InterviewApp.Wpf/InterviewApp.Wpf.csproj" />
+  <Project Path="InterviewApp/InterviewApp.Core.csproj" />
+  <Project Path="TestingInterviewApp/InterviewApp.Tests.csproj" />
 </Solution>

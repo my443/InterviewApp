@@ -32,7 +32,7 @@ namespace InterviewApp.Services
             if (category_to_remove != null)
             {
                 _context.Categories.Remove(category_to_remove);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
         }
 
@@ -44,7 +44,7 @@ namespace InterviewApp.Services
             {
                 category_to_update.Name = category.Name;
                 category_to_update.CategoryDetails = category.CategoryDetails;
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
         }
 
