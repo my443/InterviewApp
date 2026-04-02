@@ -1,10 +1,11 @@
-﻿using System.Configuration;
+﻿using InterviewApp.Data;
+using InterviewApp.Services;
+using InterviewApp.Wpf.Services;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using System.Configuration;
 using System.Data;
 using System.Windows;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.EntityFrameworkCore;
-using InterviewApp.Data;
-using InterviewApp.Services;
 
 namespace InterviewApp.Wpf
 {
@@ -13,13 +14,13 @@ namespace InterviewApp.Wpf
     /// </summary>
     public partial class App : Application
     {
-        private IServiceProvider _serviceProvider;
+        public IServiceProvider ServiceProvider { get; private set; }
 
         public App()
         {
             var services = new ServiceCollection();
             ConfigureServices(services);
-            _serviceProvider = services.BuildServiceProvider();
+            ServiceProvider = services.BuildServiceProvider();
         }
 
         private void ConfigureServices(IServiceCollection services)
@@ -33,9 +34,14 @@ namespace InterviewApp.Wpf
             services.AddScoped<QuestionService>();
             services.AddScoped<InterviewTemplateService>();
 
-            // Register Pages
-            services.AddTransient<Categories>();
+            // Register the Navigation Service
+            services.AddSingleton<INavigationService, NavigationService>();
+
+            // Register your Window and Pages
+            services.AddSingleton<MainWindow>();
+            services.AddTransient<ButtonsBar>();
             services.AddTransient<MainPage>();
+            services.AddTransient<Categories>();
 
             // 3. Register your Windows (This is key for WPF DI!)
             services.AddTransient<MainWindow>();
@@ -44,7 +50,7 @@ namespace InterviewApp.Wpf
         protected override void OnStartup(StartupEventArgs e)
         {
             // Instead of letting App.xaml open the window, we resolve it from DI
-            var mainWindow = _serviceProvider.GetRequiredService<MainWindow>();
+            var mainWindow = ServiceProvider.GetRequiredService<MainWindow>();
             mainWindow.Show();
             base.OnStartup(e);
         }
