@@ -17,10 +17,10 @@ namespace InterviewApp.Wpf
     /// <summary>
     /// Interaction logic for MainPage.xaml
     /// </summary>
-    public partial class MainPage : Page
+    public partial class HomePage : Page
     {
         private readonly IServiceProvider _serviceProvider;
-        public MainPage(IServiceProvider serviceProvider)
+        public HomePage(IServiceProvider serviceProvider)
         {
             InitializeComponent();
             _serviceProvider = serviceProvider;

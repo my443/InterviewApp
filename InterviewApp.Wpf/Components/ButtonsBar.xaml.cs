@@ -20,7 +20,7 @@ namespace InterviewApp.Wpf
 
         private void GoToMainPage(object sender, RoutedEventArgs e)
         {
-            _navService?.NavigateTo<MainPage>();
+            _navService?.NavigateTo<HomePage>();
         }
         private void GoToCategoriesPage(object sender, RoutedEventArgs e)
         {
@@ -35,6 +35,10 @@ namespace InterviewApp.Wpf
         private void GoToInterviewsPage(object sender, RoutedEventArgs e)
         {
             _navService?.NavigateTo<Interviews>();
+        }
+        private void GoToSettingsPage(object sender, RoutedEventArgs e)
+        {
+            _navService?.NavigateTo<Settings>();
         }
 
     }

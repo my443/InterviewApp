@@ -40,8 +40,11 @@ namespace InterviewApp.Wpf
             // Register your Window and Pages
             services.AddSingleton<MainWindow>();
             services.AddTransient<ButtonsBar>();
-            services.AddTransient<MainPage>();
+            services.AddTransient<HomePage>();
             services.AddTransient<Categories>();
+            services.AddTransient<Questions>();
+            services.AddTransient<Interviews>();
+            services.AddTransient<Settings>();
 
             // 3. Register your Windows (This is key for WPF DI!)
             services.AddTransient<MainWindow>();

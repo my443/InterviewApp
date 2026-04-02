@@ -9,6 +9,6 @@
       Title="Interviews">
 
     <Grid>
-        
+        <Label>Interviews Page</Label>
     </Grid>
 </Page>

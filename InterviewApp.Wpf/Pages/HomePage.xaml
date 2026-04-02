@@ -1,4 +1,4 @@
-﻿<Page x:Class="InterviewApp.Wpf.MainPage"
+﻿<Page x:Class="InterviewApp.Wpf.HomePage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,6 +9,6 @@
       Title="MainPage">
 
     <Grid>
-        <Button Content="Categories" Width="100" Height="30" Click="GoToCategoriesPage"/>
+        <Label>Home Page</Label>
     </Grid>
 </Page>

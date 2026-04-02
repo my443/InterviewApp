@@ -18,16 +18,15 @@ namespace InterviewApp.Wpf
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly IServiceProvider _serviceProvider;
+
         private readonly INavigationService _navService;
 
-        public MainWindow(IServiceProvider serviceProvider, INavigationService navService)
+        public MainWindow(INavigationService navService)
         {
             InitializeComponent();
-            _serviceProvider = serviceProvider;
 
-            // Navigate to a default page on startup
-            GoToMainPage();
+
+
 
             _navService = navService;
 
@@ -39,23 +38,10 @@ namespace InterviewApp.Wpf
             };
 
             // Optional: Navigate to home on startup
-            _navService.NavigateTo<MainPage>();
+            _navService.NavigateTo<HomePage>();
         }
 
-        public void GoToCategoriesPage(object sender, RoutedEventArgs e)
-        {
-            // RESOLVE the page from DI instead of 'new Categories()'
-            var categoriesPage = _serviceProvider.GetRequiredService<Categories>();
 
-            // NAVIGATE the frame instead of setting 'this.Content'
-            MainFrame.Navigate(categoriesPage);
-        }
-
-        private void GoToMainPage()
-        {
-            var homePage = _serviceProvider.GetRequiredService<MainPage>();
-            MainFrame.Navigate(homePage);
-        }
 
 
     }

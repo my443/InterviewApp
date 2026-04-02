@@ -12,6 +12,7 @@
             <Button Content="Categories" Width="100" Height="30" Click="GoToCategoriesPage"/>
             <Button Content="Questions" Width="100" Height="30" Click="GoToQuestionsPage"/>
             <Button Content="Interviews" Width="100" Height="30" Click="GoToInterviewsPage"/>
+            <Button Content="Settings" Width="100" Height="30" Click="GoToSettingsPage"/>
         </StackPanel>
     </Grid>
 </UserControl>
